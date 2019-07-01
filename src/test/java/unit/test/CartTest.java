@@ -2,6 +2,7 @@ package unit.test;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import shop.Cart;
 import shop.RealItem;
@@ -25,8 +26,9 @@ class CartTest {
     }
 
     @Test
+    @Tag("cart_tests")
     void checkTotalPrice() {
-        assertEquals(32.4, cart.getTotalPrice());
+        assertEquals(32.4, cart.getTotalPrice(), "Cart total price is incorrect.");
     }
 
     @AfterEach

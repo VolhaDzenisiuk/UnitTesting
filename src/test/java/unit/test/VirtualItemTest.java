@@ -2,10 +2,12 @@ package unit.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import shop.VirtualItem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class VirtualItemTest {
 
@@ -20,10 +22,10 @@ class VirtualItemTest {
     }
 
     @Test
-    void checkVirtualItem() {
-        assertEquals("Vista", virtualItem.getName());
-        assertEquals(1600, virtualItem.getSizeOnDisk());
-        assertEquals(200, virtualItem.getPrice());
+    @Tag("virtual_item_tests")
+    void checkToStringMethod() {
+        String toString = virtualItem.toString();
+        assertTrue(toString.contains("Size on disk: " + virtualItem.getSizeOnDisk()), "toString() method failed.");
     }
 
     @AfterEach

@@ -2,6 +2,7 @@ package unit.test;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import shop.RealItem;
 
@@ -21,11 +22,12 @@ class RealItemTest {
     }
 
     @Test
+    @Tag("real_item_tests")
     void checkRealItem() {
         assertAll("realItem",
-                () -> assertEquals("Volvo", realitem.getName()),
-                () -> assertEquals(1520, realitem.getPrice()),
-                () -> assertEquals(1200, realitem.getWeight())
+                () -> assertEquals("Volvo", realitem.getName(), "Real item name is incorrect."),
+                () -> assertEquals(1520, realitem.getPrice(), "Real item price is incorrect."),
+                () -> assertEquals(1200, realitem.getWeight(), "Real item weight is incorrect.")
         );
     }
 
